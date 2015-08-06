@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Tamagotchi</title>
+    </head>
+    <body>
+        <h1>Tamagotchi</h1>
+
+            {% if tamagotchi is empty %}
+                <form action='/tamagotchi' method='post'>
+                    <label for='name'>Name your new Tamagotchi!</label>
+                    <input id='name' name='name' type='text'>
+                    <button type='submit'>Submit</button>
+                </form>
+            {% else %}
+
+                {% if tamagotchi[0].checkDeath %}
+                    <h2>Sorry Your Tamagotchi is Dead</h2>
+                    <form action='/kill_tamagotchi' method='post'>
+                        <button type='submit'>Create New Tamagotchi</button>
+                    </form>
+                {% endif %}
+
+                <h2>{{ tamagotchi[0].getName }}</h2>
+                <h3>These are it's current Stats</h3>
+                <ul> Food Level: {{ tamagotchi[0].getFood }}</ul>
+                <ul> Happiness Level: {{ tamagotchi[0].getPlay }}</ul>
+                <ul>Sleep Level: {{ tamagotchi[0].getSleep }}</ul>
+                <form action='/feed_tamagotchi' method='post'>
+                    <button type='submit'>Feed</button>
+                </form>
+                <form action='/play_tamagotchi' method='post'>
+                    <button type='submit'>Play With</button>
+                </form>
+                <form action='/sleep_tamagotchi' method='post'>
+                    <button type='submit'>Put to bed</button>
+                </form>
+                <form action='/skip_time' method='post'>
+                    <button type='submit'>Skip Time</button>
+                </form>
+
+                <form action='/kill_tamagotchi' method='post'>
+                    <button type='submit'>Set it Free</button>
+                </form>
+
+            {% endif %}
+    </body>
+</html>
