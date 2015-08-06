@@ -1,6 +1,6 @@
 # Tamagotchi Game
 
-##### Allows users to create Tamagotchi objects, 8/5/2015
+##### Allows users to create Tamagotchi objects, 8/6/2015
 
 #### By Logan Wu & Jeffrey Austin
 

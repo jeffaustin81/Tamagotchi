@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Your Tamagotchi</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <title>Tamagotchi</title>
     </head>
     <body>
+        <div class="container">
         <h1>Tamagotchi</h1>
 
             {% if tamagotchi is empty %}
                 <form action='/tamagotchi' method='post'>
-                    <label for='name'>Name your new Tamagotchi!</label>
-                    <input id='name' name='name' type='text'>
-                    <button type='submit'>Submit</button>
+                    <div class="form-group">
+                        <label for='name'>Name your new Tamagotchi:</label></br>
+                        <input id='name' name='name' class="form-control" type='text'>
+                    </div>
+                    <button type='submit' class="btn btn-default">Submit</button>
                 </form>
             {% else %}
 
@@ -21,28 +25,40 @@
                     </form>
                 {% endif %}
 
-                <h2>{{ tamagotchi[0].getName }}</h2>
-                <h3>These are it's current Stats</h3>
-                <ul> Food Level: {{ tamagotchi[0].getFood }}</ul>
-                <ul> Happiness Level: {{ tamagotchi[0].getPlay }}</ul>
-                <ul>Sleep Level: {{ tamagotchi[0].getSleep }}</ul>
-                <form action='/feed_tamagotchi' method='post'>
-                    <button type='submit'>Feed</button>
-                </form>
-                <form action='/play_tamagotchi' method='post'>
-                    <button type='submit'>Play With</button>
-                </form>
-                <form action='/sleep_tamagotchi' method='post'>
-                    <button type='submit'>Put to bed</button>
-                </form>
-                <form action='/skip_time' method='post'>
-                    <button type='submit'>Skip Time</button>
-                </form>
+                <h3><font color="red">{{ tamagotchi[0].getName }}</font>'s current status:</h3>
+                <p> Food Level: {{ tamagotchi[0].getFood }}</p>
+                <p> Happiness Level: {{ tamagotchi[0].getPlay }}</p>
+                <p>Sleep Level: {{ tamagotchi[0].getSleep }}</p>
 
-                <form action='/kill_tamagotchi' method='post'>
-                    <button type='submit'>Set it Free</button>
-                </form>
-
+                <br>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <form action='/feed_tamagotchi' method='post'>
+                            <button type='submit' class="btn btn-default">Feed</button>
+                        </form>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <form action='/play_tamagotchi' method='post'>
+                            <button type='submit' class="btn btn-default">Play</button>
+                        </form>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <form action='/sleep_tamagotchi' method='post'>
+                            <button type='submit' class="btn btn-default">Bedtime</button>
+                        </form>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <form action='/skip_time' method='post'>
+                            <button type='submit' class="btn btn-default">Skip Time</button>
+                        </form>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <form action='/kill_tamagotchi' method='post'>
+                            <button type='submit' class="btn btn-default">Set Free</button>
+                        </form>
+                    </div>
+                </div>
             {% endif %}
+        </div>
     </body>
 </html>

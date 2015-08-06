@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>New Tamagotchi!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <title>Tamagotchi!</title>
     </head>
+    <div class="container">
     <body>
         <h1>Your new Tamagotchi has been created!</h1>
-        <p>It's name is:{{ newtamagotchi.getName() }}</p>
-        <p><a href='/'>Check on your Tamagotchi</a></p>
+        <h3>Its name is: <b>{{ newtamagotchi.getName() }}</b>.</h3>
+        <p><a href='/'>
+            <button type='submit' class='btn btn-default'>Check on Your Tamagotchi</button>
+            </a>
+        </p>
     </body>
+    </div>
 </html>
